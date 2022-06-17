@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ezsales-api-configmap
+  namespace: default
+data:
+  MONGO_HOST: {{ .Values.mongo.host }}
+  MONGO_DB_NAME: {{ .Values.mongo.dbName }}
+  MONGO_AUTO_INDEX_CREATION: '{{ .Values.mongo.autoIndexCreation }}'
