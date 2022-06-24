@@ -7,3 +7,6 @@ data:
   MONGO_HOST: {{ .Values.mongo.host }}
   MONGO_DB_NAME: {{ .Values.mongo.dbName }}
   MONGO_AUTO_INDEX_CREATION: '{{ .Values.mongo.autoIndexCreation }}'
+  COM_REPLY_TO_EMAIL: {{ .Values.communication.replyTo.email }}
+  COM_REPLY_TO_NAME: {{ .Values.communication.replyTo.name }}
+  COM_CLIENTS_SENDINBLUE_BASE_URL: {{ .Values.communication.clients.sendinblue.baseUrl }}

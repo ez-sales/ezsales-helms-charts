@@ -8,6 +8,14 @@ mongo:
   dbName: ezsales-api
   autoIndexCreation: true
 
+communication:
+  replyTo:
+    email: no-reply@ez-sales.eu
+    name: "[STAGING] Ez Sales"
+  clients:
+    sendinblue:
+      baseUrl: https://api.sendinblue.com/v3
+
 api:
   enabled: true
   name: ezsales-api
