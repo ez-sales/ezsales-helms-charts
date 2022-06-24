@@ -16,6 +16,13 @@ communication:
     sendinblue:
       baseUrl: https://api.sendinblue.com/v3
 
+s3:
+  clients:
+    scaleway:
+      enabled: true
+      endpoint: https://s3.fr-par.scw.cloud
+      region: fr-par
+
 api:
   enabled: true
   name: ezsales-api
