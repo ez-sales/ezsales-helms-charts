@@ -11,7 +11,7 @@ mongo:
 communication:
   replyTo:
     email: no-reply@ez-sales.eu
-    name: "[STAGING] Ez Sales"
+    name: \[STAGING\] Ez Sales
   clients:
     sendinblue:
       baseUrl: https://api.sendinblue.com/v3
@@ -65,8 +65,8 @@ api:
     repository: rg.fr-par.scw.cloud/funcscwrecezsalesapivdpn8gpk/ezsales-api
     tag: 0.0.2-SNAPSHOT
     pullPolicy: Always
-    # pullSecrets:
-    #   - name: gravitee_secrets
+    pullSecrets:
+      - name: registry-secret
 
   livenessProbe:
     tcpSocket:
@@ -112,7 +112,7 @@ api:
     externalPort: 8080
     internalPort: 9000
   # annotations:
-  #securityContext:
+  # securityContext:
   #  runAsUser: 1042
   #  runAsNonRoot: true
   autoscaling:
@@ -131,11 +131,11 @@ api:
       kubernetes.io/ingress.class: nginx
       ingress.kubernetes.io/configuration-snippet: "etag on;\nproxy_pass_header ETag;\nproxy_set_header if-match \"\";\n"
       # kubernetes.io/tls-acme: "true"
-    #tls:
-      # Secrets must be manually created in the namespace.
-      # - secretName: chart-example-tls
-      #   hosts:
-      #     - chart-example.local
+    # tls:
+    # Secrets must be manually created in the namespace.
+    # - secretName: chart-example-tls
+    #   hosts:
+    #     - chart-example.local
     tls:
       - hosts:
           - am.example.com

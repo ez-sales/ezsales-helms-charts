@@ -41,10 +41,10 @@ api:
   replicaCount: 1
   image:
     repository: rg.fr-par.scw.cloud/funcscwrecezsalesapivdpn8gpk/ezsales-api
-    tag: 0.0.1-SNAPSHOT
+    tag: 0.0.2-SNAPSHOT
     pullPolicy: Always
-    # pullSecrets:
-    #   - name: gravitee_secrets
+    pullSecrets:
+      - name: registry-secret
 
   deployment:
     # Annotations to apply to the deployment

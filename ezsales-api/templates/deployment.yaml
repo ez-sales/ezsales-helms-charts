@@ -33,3 +33,5 @@ spec:
             name: ezsales-api-configmap
         - secretRef:
             name: ezsales-api-{{ .Values.env }}-secret
+      imagePullSecrets:
+          - name: registry-secret
