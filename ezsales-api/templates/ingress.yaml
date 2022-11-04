@@ -9,10 +9,11 @@ metadata:
     {{- include "common.ingress.annotations.render" (dict "annotations" .Values.api.ingress.annotations "ingressClassName" .Values.api.ingress.ingressClassName "context" $) | nindent 4 }}
     {{- end }}
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
-      - "*.ez-sales.eu" 
-      secretName: wildcard-ez-sales-eu-tls
+      - {{ .Values.api.ingress.tls.host }}
+      secretName: {{ .Values.api.ingress.tls.secretName }}
   rules:
     - host: {{ .Values.api.ingress.host }}
       http:
@@ -23,4 +24,4 @@ spec:
               service:
                 name: {{ .Values.api.name }}
                 port:
-                  number: 8080
+                  number: {{ .Values.api.service.externalPort }}
