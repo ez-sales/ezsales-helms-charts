@@ -12,8 +12,10 @@ Add following options to enable debug and dry-run
 --dry-run --debug
 ```
 
-### Pull scw registry images from k8s
-https://www.scaleway.com/en/docs/compute/kubernetes/how-to/deploy-image-from-container-registry/
+### Secret needed for helm to pull scw registry images
+https://www.scaleway.com/en/docs/containers/kubernetes/how-to/deploy-image-from-container-registry/#how-to-create-an-image-pull-secret
+To generate your own API key, you have to go on https://console.scaleway.com/iam/api-keys 
+
 ```
-kubectl create secret docker-registry registry-secret --docker-server=rg.fr-par.scw.cloud --docker-username=funcscwrecezsalesapivdpn8gpk --docker-password=04490ce1-0af7-4080-86fd-38f5b1edf70f
+kubectl create secret docker-registry registry-secret --docker-server=rg.fr-par.scw.cloud --docker-username=funcscwrecezsalesapivdpn8gpk --docker-password=<your_password>
 ```
