@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: {{ .Values.front.name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: {{ .Values.front.name }}
+spec:
+  ports:
+  - name: {{ .Values.front.service.externalPort }}-{{ .Values.front.service.internalPort }}
+    port: {{ .Values.front.service.externalPort }}
+    protocol: TCP
+    targetPort: {{ .Values.front.service.internalPort }}
+    nodePort: {{ .Values.front.service.externalPort }}
+  selector:
+    app: {{ .Values.front.name }}
+  type: {{ .Values.front.service.type }}
+status:
+  loadBalancer: {}

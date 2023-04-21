@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: {{ .Values.front.name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: {{ .Values.front.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.front.name }}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: {{ .Values.front.name }}
+    spec:
+      containers:
+      - image: {{ .Values.front.image.repository }}:{{ .Values.front.image.tag }}
+        name: {{ .Values.front.name }}
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "0.5"
+            memory: "500Mi"
+        envFrom:
+        - configMapRef:
+            name: ezsales-mkp-front-configmap
+        - secretRef:
+            name: ezsales-mkp-front-{{ .Values.env }}-secret
+      imagePullSecrets:
+          - name: registry-secret
