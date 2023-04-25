@@ -1,0 +1,128 @@
+# Default values for EZ Sales MKP Front.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+env: staging
+
+communication:
+  replyTo:
+    email: no-reply@ez-sales.eu
+    name: \[STAGING\] Ez Sales
+  clients:
+    sendinblue:
+      baseUrl: https://api.sendinblue.com/v3
+
+s3:
+  clients:
+    scaleway:
+      enabled: true
+      endpoint: https://s3.fr-par.scw.cloud
+      region: fr-par
+
+front:
+  enabled: true
+  name: ezsales-mkp-front
+
+  clusterRoleRules:
+    - apiGroups:
+        - ""
+      resources:
+        - configmaps
+        - secrets
+      verbs:
+        - get
+        - list
+        - watch
+
+  restartPolicy: OnFailure
+  reloadOnConfigChange: true
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
+  replicaCount: 1
+
+  image:
+    repository: rg.fr-par.scw.cloud/funcscwrecezsalesapivdpn8gpk/ezsales-mkp-front
+    tag: 0.0.1
+    pullPolicy: Always
+    pullSecrets:
+      - name: registry-secret
+
+  livenessProbe:
+    tcpSocket:
+      port: http
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 3
+
+  readinessProbe:
+    tcpSocket:
+      port: http
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 3
+
+  pdb:
+    enabled: false
+    minAvailable: ""
+    maxUnavailable: "50%"
+
+  podAnnotations: {}
+
+  # How long to wait for EZ Sales MKP Front pods to stop gracefully
+  terminationGracePeriod: 30
+
+  # This is the PriorityClass settings as defined in
+  # https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass
+  priorityClassName: ""
+
+  env: []
+  #   - name: ENV_VARIABLE
+  #     value: ENV_VARIABLE_VALUE
+  #   - name: ENV_VARIABLE_WITH_FROM
+  #     valueFrom:
+  #       configMapKeyRef:
+  #         name: special-config
+  #         key: SPECIAL_LEVEL
+
+  additionalPlugins:
+  #   - https://path_to_plugin
+
+  service:
+    type: NodePort
+    externalPort: 30001
+    internalPort: 3000
+  # annotations:
+  # securityContext:
+  #  runAsUser: 1042
+  #  runAsNonRoot: true
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 3
+    targetAverageUtilization: 50
+    targetMemoryAverageUtilization: 80
+  resources:
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    limits:
+      cpu: 250m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    #  lifecycle:
+    #    postStart: '[ "/bin/sh", "-c", "echo Post starting EZ Sales MKP Front" ]'
+    #    preStop: '[ "/bin/sh", "-c", "echo Pre stopping EZ Sales MKP Front" ]'
+    ## Additional EZ Sales MKP Front volume mounts
+    # Defines additional volume mounts.
+    # extraVolumeMounts: |
+    # - name: extra-volume
+    #   mountPath: /mnt/volume
+    #   readOnly: true
+    #   existingClaim: volume-claim
+
+  auth:
+    origin: "http://localhost:3000"

@@ -1,0 +1,14 @@
+apiVersion: v2
+name: ezsales-mkp-front
+version: 1.0.0
+type: application
+appVersion: 0.0.2-SNAPSHOT
+description: Official EZ Sales Helm chart for EZ Sales MKP Front
+home: https://www.ez-sales.eu
+sources:
+  - https://github.com/ez-sales
+keywords:
+  - ez-sales.eu
+  - ezsales
+  - ezsales-mkp-front
+kubeVersion: ">=1.14.0-0"

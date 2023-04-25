@@ -1,0 +1,170 @@
+# Default values for EZ Sales API.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+env: staging
+
+mongo:
+  host: ez-sales.ufhg9oa.mongodb.net
+  dbName: ezsales-api
+  autoIndexCreation: true
+
+communication:
+  replyTo:
+    email: no-reply@ez-sales.eu
+    name: \[STAGING\] Ez Sales
+  clients:
+    sendinblue:
+      baseUrl: https://api.sendinblue.com/v3
+
+s3:
+  clients:
+    scaleway:
+      enabled: true
+      endpoint: https://s3.fr-par.scw.cloud
+      region: fr-par
+
+scaleway:
+  loadBalancer:
+    ip: 51.159.85.13
+
+api:
+  enabled: true
+  name: ezsales-api
+
+  ingress:
+    enabled: true
+    ingressClassName: ""
+    path: /
+    # Used to create an Ingress record.
+    host: staging-api.ez-sales.eu
+    #host: api.fd6d122c-e7e9-4278-afca-252080a771f4.nodes.k8s.fr-par.scw.cloud
+    annotations:
+      cert-manager.io/cluster-issuer: scaleway-issuer-prod
+      nginx.org/mergeable-ingress-type: "minion"
+      #kubernetes.io/ingress.class: nginx // DEPRECATED
+      #nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      #kubernetes.io/tls-acme: "true"
+    # tls:
+    # Secrets must be manually created in the namespace.
+    # - secretName: chart-example-tls
+    #   hosts:
+    #     - chart-example.local
+    tls:
+      host: staging-api.ez-sales.eu
+      secretName: wildcard-ez-sales-eu-tls
+
+  clusterRoleRules:
+    - apiGroups:
+        - ""
+      resources:
+        - configmaps
+        - secrets
+      verbs:
+        - get
+        - list
+        - watch
+
+  logging:
+    debug: false
+    stdout:
+      encoderPattern: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file:
+      enabled: true
+      rollingPolicy: |
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${ezsales.api.log.dir}/ezsales-api_%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- keep 7 days' worth of history -->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+      encoderPattern: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%n"
+    ezsalesLevel: DEBUG
+    nettyLevel: INFO
+  restartPolicy: OnFailure
+  reloadOnConfigChange: true
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
+  replicaCount: 1
+  image:
+    repository: rg.fr-par.scw.cloud/funcscwrecezsalesapivdpn8gpk/ezsales-api
+    tag: 0.0.2-SNAPSHOT
+    pullPolicy: Always
+    pullSecrets:
+      - name: registry-secret
+
+  livenessProbe:
+    tcpSocket:
+      port: http
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 3
+
+  readinessProbe:
+    tcpSocket:
+      port: http
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 3
+
+  pdb:
+    enabled: false
+    minAvailable: ""
+    maxUnavailable: "50%"
+
+  podAnnotations: {}
+
+  # How long to wait for EZ Sales API pods to stop gracefully
+  terminationGracePeriod: 30
+
+  # This is the PriorityClass settings as defined in
+  # https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/#priorityclass
+  priorityClassName: ""
+
+  env: []
+  #   - name: ENV_VARIABLE
+  #     value: ENV_VARIABLE_VALUE
+  #   - name: ENV_VARIABLE_WITH_FROM
+  #     valueFrom:
+  #       configMapKeyRef:
+  #         name: special-config
+  #         key: SPECIAL_LEVEL
+
+  additionalPlugins:
+  #   - https://path_to_plugin
+
+  service:
+    externalPort: 8080
+    internalPort: 9000
+  # annotations:
+  # securityContext:
+  #  runAsUser: 1042
+  #  runAsNonRoot: true
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 3
+    targetAverageUtilization: 50
+    targetMemoryAverageUtilization: 80
+  resources:
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    limits:
+      cpu: 250m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    #  lifecycle:
+    #    postStart: '[ "/bin/sh", "-c", "echo Post starting EZ Sales API" ]'
+    #    preStop: '[ "/bin/sh", "-c", "echo Pre stopping EZ Sales API" ]'
+    ## Additional EZ Sales API volume mounts
+    # Defines additional volume mounts.
+    # extraVolumeMounts: |
+    # - name: extra-volume
+    #   mountPath: /mnt/volume
+    #   readOnly: true
+    #   existingClaim: volume-claim

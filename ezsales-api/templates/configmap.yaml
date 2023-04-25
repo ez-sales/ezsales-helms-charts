@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ezsales-api-configmap
+  namespace: default
+data:
+  MONGO_HOST: {{ .Values.mongo.host }}
+  MONGO_DB_NAME: {{ .Values.mongo.dbName }}
+  MONGO_AUTO_INDEX_CREATION: '{{ .Values.mongo.autoIndexCreation }}'
+  COM_REPLY_TO_EMAIL: {{ .Values.communication.replyTo.email }}
+  COM_REPLY_TO_NAME: {{ .Values.communication.replyTo.name | quote }}
+  COM_CLIENTS_SENDINBLUE_BASE_URL: {{ .Values.communication.clients.sendinblue.baseUrl }}
+  S3_CLIENTS_SCALEWAY_ENABLED: '{{ .Values.s3.clients.scaleway.enabled }}'
+  S3_CLIENTS_SCALEWAY_ENDPOINT: {{ .Values.s3.clients.scaleway.endpoint }}
+  S3_CLIENTS_SCALEWAY_REGION: {{ .Values.s3.clients.scaleway.region }}
