@@ -1,0 +1,5 @@
+remote: origin
+chart-dirs:
+  - ezsales-api
+  - ezsales-mkp-front
+helm-extra-args: --timeout 600s

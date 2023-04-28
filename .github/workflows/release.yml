@@ -26,8 +26,6 @@ jobs:
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.4.0
-        env:
-          CT_CHART_DIRS: "ezsales-api,ezsales-mkp-front"
 
       - name: Run chart-testing (list-changed)
         id: list-changed
@@ -54,19 +52,19 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Run chart-releaser for EZSales API
-        uses: helm/chart-releaser-action@v1.5.0
-        with:
-          charts_dir: 'ezsales-api'
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      #- name: Run chart-releaser for EZSales API
+      #  uses: helm/chart-releaser-action@v1.5.0
+      #  with:
+      #    charts_dir: 'ezsales-api'
+      #  env:
+      #    CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       
-      - name: Run chart-releaser for EZSales MKP API
-        uses: helm/chart-releaser-action@v1.5.0
-        with:
-          charts_dir: 'ezsales-mkp-api'
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      #- name: Run chart-releaser for EZSales MKP API
+      #  uses: helm/chart-releaser-action@v1.5.0
+      #  with:
+      #    charts_dir: 'ezsales-mkp-api'
+      #  env:
+      #    CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       
       - name: Run chart-releaser for EZSales MKP FRONT
         uses: helm/chart-releaser-action@v1.5.0
