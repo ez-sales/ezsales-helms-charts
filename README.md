@@ -1,21 +1,21 @@
-# Helm charts for EZ Sales
-## EZ Sales API
-### Installation
-When at root directory
-```
-helm install -f ezsales-api/envs/staging-values.yaml ezsales-api ezsales-api
-```
+## Usage
 
-### Debug
-Add following options to enable debug and dry-run
-```
---dry-run --debug
-```
+[Helm](https://helm.sh) must be installed to use the charts.  Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
 
-### Secret needed for helm to pull scw registry images
-https://www.scaleway.com/en/docs/containers/kubernetes/how-to/deploy-image-from-container-registry/#how-to-create-an-image-pull-secret
-To generate your own API key, you have to go on https://console.scaleway.com/iam/api-keys 
+Once Helm has been set up correctly, add the repo as follows:
 
-```
-kubectl create secret docker-registry registry-secret --docker-server=rg.fr-par.scw.cloud --docker-username=funcscwrecezsalesapivdpn8gpk --docker-password=<your_password>
-```
+```helm repo add ezsales https://helm.ez-sales.eu```
+
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages.  You can then run `helm search repo
+ezsales` to see the charts.
+
+
+### To install the ezsales-mkp-front chart:
+
+```helm install my-ezsales-mkp-front ezsales/ezsales-mkp-front```
+
+To uninstall the chart:
+
+```helm delete my-ezsales-mkp-front```
