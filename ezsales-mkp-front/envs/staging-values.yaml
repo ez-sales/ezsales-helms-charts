@@ -3,21 +3,6 @@
 # Declare variables to be passed into your templates.
 env: staging
 
-communication:
-  replyTo:
-    email: no-reply@ez-sales.eu
-    name: \[STAGING\] Ez Sales
-  clients:
-    sendinblue:
-      baseUrl: https://api.sendinblue.com/v3
-
-s3:
-  clients:
-    scaleway:
-      enabled: true
-      endpoint: https://s3.fr-par.scw.cloud
-      region: fr-par
-
 front:
   enabled: true
   name: ezsales-mkp-front
