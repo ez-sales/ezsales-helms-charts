@@ -33,3 +33,6 @@ Then, in  `<project-name>/templates/configmap.yaml`, you have to add its value w
 `AUTH_ORIGIN: {{ .Values.front.auth.origin }}`
 
 --> `front.auth.origin` is the variable path in `<env_name>-values.yaml`
+
+
+envs values files should be commited in root of applications
