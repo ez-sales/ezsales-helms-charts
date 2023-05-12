@@ -4,6 +4,7 @@
 front:
   enabled: true
   name: ezsales-mkp-front
+  namespace: default
 
   clusterRoleRules:
     - apiGroups:

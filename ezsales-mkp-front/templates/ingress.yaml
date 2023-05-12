@@ -1,0 +1,29 @@
+{{- if .Values.front.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ezsales-mkp-front-ingress
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    {{- if .Values.front.ingress.annotations }}
+    {{- include "common.ingress.annotations.render" (dict "annotations" .Values.front.ingress.annotations "ingressClassName" .Values.front.ingress.ingressClassName "context" $) | nindent 4 }}
+    {{- end }}
+spec:
+  ingressClassName: {{ .Values.front.ingress.ingressClassName }}
+  tls:
+    - hosts:
+      - {{ .Values.front.ingress.tls.host }}
+      secretName: {{ .Values.front.ingress.tls.secretName }}
+  rules:
+    - host: {{ .Values.front.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.front.name }}
+                port:
+                  number: {{ .Values.front.service.externalPort }}
+{{- end }}

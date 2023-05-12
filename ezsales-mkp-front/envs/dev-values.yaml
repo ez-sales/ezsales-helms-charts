@@ -6,6 +6,7 @@ env: development
 front:
   enabled: true
   name: ezsales-mkp-front
+  namespace: default
 
   clusterRoleRules:
     - apiGroups:
@@ -108,6 +109,9 @@ front:
     #   mountPath: /mnt/volume
     #   readOnly: true
     #   existingClaim: volume-claim
+
+  ingress:
+    enabled: false
 
   auth:
     origin: "http://localhost:3000"
