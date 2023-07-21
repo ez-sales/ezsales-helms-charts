@@ -1,6 +1,6 @@
 apiVersion: v2
 name: ezsales-mkp-front
-version: 1.0.0
+version: 0.0.2
 type: application
 appVersion: 0.0.2
 description: Official EZ Sales Helm chart for EZ Sales MKP Front
