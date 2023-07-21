@@ -6,7 +6,7 @@ env: development
 front:
   enabled: true
   name: ezsales-mkp-front
-  namespace: default
+  namespace: applications
 
   clusterRoleRules:
     - apiGroups:
@@ -29,7 +29,7 @@ front:
 
   image:
     repository: rg.fr-par.scw.cloud/funcscwrecezsalesapivdpn8gpk/ezsales-mkp-front
-    tag: 0.0.1
+    tag: 0.0.2
     pullPolicy: Always
     pullSecrets:
       - name: registry-secret
