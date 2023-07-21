@@ -1,4 +1,9 @@
 # Helm charts for EZ Sales
+
+## Helm repository
+All information are available at https://helm.ez-sales.eu/
+
+
 ## Installation
 ### EZ Sales API
 When at root directory
@@ -9,8 +14,10 @@ helm install -f ezsales-api/envs/staging-values.yaml ezsales-api ezsales-api
 ### EZ Sales MKP Front
 When at root directory
 ```
-helm install -f ezsales-mkp-front/envs/<env_name>-values.yaml ezsales-mkp-front ezsales-mkp-front
+helm install -f ezsales-mkp-front/envs/<ENV_NAME>-values.yaml ezsales-mkp-front ezsales-mkp-front --version "<CHART_VERSION>"
 ```
+
+Availables ENV_NAME are : [dev, staging]
 
 ### Debug
 Add following options to enable debug and dry-run
