@@ -19,4 +19,22 @@ entries:
     urls:
     - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-front-1.0.0/ezsales-mkp-front-1.0.0.tgz
     version: 1.0.0
-generated: "2023-04-28T14:00:58.17250816Z"
+  - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2023-07-21T15:00:08.051124778Z"
+    description: Official EZ Sales Helm chart for EZ Sales MKP Front
+    digest: f74ee1f4b702fd2b9874e6f0b90042f752d00c5bfda3a6ccc31dfdbb86a6ae12
+    home: https://www.ez-sales.eu
+    keywords:
+    - ez-sales.eu
+    - ezsales
+    - ezsales-mkp-front
+    kubeVersion: '>=1.14.0-0'
+    name: ezsales-mkp-front
+    sources:
+    - https://github.com/ez-sales
+    type: application
+    urls:
+    - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-front-0.0.2/ezsales-mkp-front-0.0.2.tgz
+    version: 0.0.2
+generated: "2023-07-21T15:00:08.051136478Z"
