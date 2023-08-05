@@ -6,3 +6,9 @@ metadata:
 data:
   NODE_ENV: {{ .Values.env }}
   AUTH_ORIGIN: {{ .Values.front.auth.origin }}
+  NUXT_PUBLIC_BASE_URL: {{ .Values.front.baseUrl }}
+  NUXT_PUBLIC_API_BASE_URL: {{ .Values.front.api.baseUrl }}
+  NUXT_PUBLIC_AUTH_AUTHORITY_URL: {{ .Values.front.auth.authorityUrl }}
+  NUXT_PUBLIC_AUTH_METADATA_URL: {{ .Values.front.auth.metadataUrl }}
+  NUXT_PUBLIC_AUTH_CLIENT_ID: {{ .Values.front.auth.clientId }}
+  NUXT_PUBLIC_AUTH_CLIENT_SCOPE: {{ .Values.front.auth.clientScope }}
