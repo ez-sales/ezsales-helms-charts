@@ -30,8 +30,8 @@ spec:
             memory: "500Mi"
         envFrom:
         - configMapRef:
-            name: ezsales-api-configmap
+            name: ezsales-mkp-api-configmap
         - secretRef:
-            name: ezsales-api-{{ .Values.env }}-secret
+            name: ezsales-mkp-api-{{ .Values.env }}-secret
       imagePullSecrets:
           - name: registry-secret

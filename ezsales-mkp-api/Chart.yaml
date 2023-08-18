@@ -1,14 +1,14 @@
 apiVersion: v2
-name: ezsales-api
+name: ezsales-mkp-api
 version: 1.0.0
 type: application
-appVersion: 0.0.2-SNAPSHOT
-description: Official EZ Sales Helm chart for EZ Sales API
+appVersion: 0.0.1-SNAPSHOT
+description: Official EZ Sales Helm chart for EZ Sales Customer Portfolio Marketplace API
 home: https://www.ez-sales.eu
 sources:
   - https://github.com/ez-sales
 keywords:
   - ez-sales.eu
   - ezsales
-  - ezsales-api
+  - ezsales-mkp-api
 kubeVersion: ">=1.14.0-0"

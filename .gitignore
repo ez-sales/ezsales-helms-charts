@@ -8,3 +8,9 @@
 .vscode
 
 .DS_Store
+
+# env values files
+*-values.y*ml
+
+# secret files
+*-secret.y*ml

@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ezsales-api-ingress
+  name: ezsales-mkp-api-ingress
   labels:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
@@ -18,7 +18,7 @@ spec:
     - host: {{ .Values.api.ingress.host }}
       http:
         paths:
-          - path: /
+          - path: {{ .Values.api.ingress.path }}
             pathType: Prefix
             backend:
               service:
