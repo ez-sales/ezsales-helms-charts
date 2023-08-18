@@ -1,5 +1,24 @@
 apiVersion: v1
 entries:
+  ezsales-api:
+  - apiVersion: v2
+    appVersion: 0.0.2-SNAPSHOT
+    created: "2023-08-18T15:29:27.617099713Z"
+    description: Official EZ Sales Helm chart for EZ Sales API
+    digest: d973c31247f33d49972b7ba01d59d5900da4eaff200cdfafef4ed049fbff5e14
+    home: https://www.ez-sales.eu
+    keywords:
+    - ez-sales.eu
+    - ezsales
+    - ezsales-api
+    kubeVersion: '>=1.14.0-0'
+    name: ezsales-api
+    sources:
+    - https://github.com/ez-sales
+    type: application
+    urls:
+    - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-api-1.0.0/ezsales-api-1.0.0.tgz
+    version: 1.0.0
   ezsales-mkp-front:
   - apiVersion: v2
     appVersion: 0.0.3
@@ -37,4 +56,4 @@ entries:
     urls:
     - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-front-0.0.2/ezsales-mkp-front-0.0.2.tgz
     version: 0.0.2
-generated: "2023-08-05T14:04:08.124288013Z"
+generated: "2023-08-18T15:29:27.617119414Z"
