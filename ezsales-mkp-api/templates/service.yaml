@@ -6,6 +6,7 @@ metadata:
     app: {{ .Values.api.name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   name: {{ .Values.api.name }}
+  namespace: {{ .Values.api.namespace }}
 spec:
   ports:
   - name: {{ .Values.api.service.externalPort }}-{{ .Values.api.service.internalPort }}

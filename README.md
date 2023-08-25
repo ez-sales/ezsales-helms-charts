@@ -8,7 +8,7 @@ All information are available at https://helm.ez-sales.eu/
 ### EZ Sales API
 When at root directory
 ```
-helm install -f ezsales-mkp-api/envs/staging-values.yaml ezsales-mkp-api ezsales-mkp-api
+helm install -f ezsales-mkp-api/envs/staging-values.yaml ezsales-mkp-api ezsales-mkp-api --version "<CHART_VERSION>"
 ```
 
 ### EZ Sales MKP Front
