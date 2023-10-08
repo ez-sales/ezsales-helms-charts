@@ -16,5 +16,5 @@ data:
   S3_CLIENTS_SCALEWAY_REGION: {{ .Values.s3.clients.scaleway.region }}
   YOUSIGN_BASE_URL: {{ .Values.yousign.baseUrl }}
   YOUSIGN_API_KEY: {{ .Values.yousign.apiKey }}
-  YOUSIGN_CONNECT_TIMEOUT: {{ .Values.yousign.connectTimeout }}
-  YOUSIGN_READ_TIMEOUT: {{ .Values.yousign.readTimeout }}
+  YOUSIGN_CONNECT_TIMEOUT: '{{ .Values.yousign.connectTimeout }}'
+  YOUSIGN_READ_TIMEOUT: '{{ .Values.yousign.readTimeout }}'
