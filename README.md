@@ -8,11 +8,19 @@ All information are available at https://helm.ez-sales.eu/
 ### EZ Sales API
 When at root directory
 ```
+helm uninstall ezsales-mkp-api
+```
+
+```
 helm install -f ezsales-mkp-api/envs/staging-values.yaml ezsales-mkp-api ezsales-mkp-api --version "<CHART_VERSION>"
 ```
 
 ### EZ Sales MKP Front
 When at root directory
+```
+helm uninstall ezsales-mkp-front
+```
+
 ```
 helm install -f ezsales-mkp-front/envs/<ENV_NAME>-values.yaml ezsales-mkp-front ezsales-mkp-front --version "<CHART_VERSION>"
 ```
