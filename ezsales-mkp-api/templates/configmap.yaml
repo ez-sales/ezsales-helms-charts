@@ -18,3 +18,4 @@ data:
   YOUSIGN_API_KEY: {{ .Values.yousign.apiKey }}
   YOUSIGN_CONNECT_TIMEOUT: '{{ .Values.yousign.connectTimeout }}'
   YOUSIGN_READ_TIMEOUT: '{{ .Values.yousign.readTimeout }}'
+  YOUSIGN_SIGN_SUCCESS_CALLBACK_URL: {{ .Values.yousign.signSuccessCallbackUrl }}
