@@ -14,6 +14,7 @@ data:
   S3_CLIENTS_SCALEWAY_ENABLED: '{{ .Values.s3.clients.scaleway.enabled }}'
   S3_CLIENTS_SCALEWAY_ENDPOINT: {{ .Values.s3.clients.scaleway.endpoint }}
   S3_CLIENTS_SCALEWAY_REGION: {{ .Values.s3.clients.scaleway.region }}
+  S3_CLIENTS_SCALEWAY_BUCKET_NAME: {{ .Values.s3.clients.scaleway.bucketName }}
   YOUSIGN_BASE_URL: {{ .Values.yousign.baseUrl }}
   YOUSIGN_API_KEY: {{ .Values.yousign.apiKey }}
   YOUSIGN_CONNECT_TIMEOUT: '{{ .Values.yousign.connectTimeout }}'
