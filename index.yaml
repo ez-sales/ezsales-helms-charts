@@ -21,6 +21,25 @@ entries:
     version: 1.0.0
   ezsales-mkp-api:
   - apiVersion: v2
+    appVersion: 0.0.5
+    created: "2023-11-02T14:16:25.136212331Z"
+    description: Official EZ Sales Helm chart for EZ Sales Customer Portfolio Marketplace
+      API
+    digest: 636765af76124c38892752c720adda37f7427c112dac71814937fce2481ac503
+    home: https://www.ez-sales.eu
+    keywords:
+    - ez-sales.eu
+    - ezsales
+    - ezsales-mkp-api
+    kubeVersion: '>=1.14.0-0'
+    name: ezsales-mkp-api
+    sources:
+    - https://github.com/ez-sales
+    type: application
+    urls:
+    - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-api-0.0.5/ezsales-mkp-api-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
     appVersion: 0.0.4
     created: "2023-10-09T12:24:47.848171553Z"
     description: Official EZ Sales Helm chart for EZ Sales Customer Portfolio Marketplace
@@ -151,4 +170,4 @@ entries:
     urls:
     - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-front-0.0.2/ezsales-mkp-front-0.0.2.tgz
     version: 0.0.2
-generated: "2023-10-09T12:24:47.848191353Z"
+generated: "2023-11-02T14:16:25.136235832Z"
