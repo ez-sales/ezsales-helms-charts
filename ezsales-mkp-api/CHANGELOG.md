@@ -3,7 +3,7 @@
 This file documents all notable changes to [EZ Sales Mkp API](https://github.com/ez-sales/helms-charts/tree/master/ezsales-mkp-api/) Helm Chart. The release numbering uses [semantic versioning](http://semver.org).
 
 ### 0.0.7
-- Add scalewat s3 properties to configmap
+- Add scaleway s3 properties to configmap
 
 ### 0.0.6
 - Add auth enabled to configmap
