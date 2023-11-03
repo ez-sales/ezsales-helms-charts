@@ -4,6 +4,7 @@ metadata:
   name: ezsales-mkp-api-configmap
   namespace: {{ .Values.api.namespace }}
 data:
+  LOG_EZSALES_LEVEL: {{ .Values.log.level.ezsales }}
   #PORT: '{{ .Values.api.service.internalPort }}'
   MONGO_HOST: {{ .Values.mongo.host }}
   MONGO_DB_NAME: {{ .Values.mongo.dbName }}
@@ -20,8 +21,9 @@ data:
   YOUSIGN_CONNECT_TIMEOUT: '{{ .Values.yousign.connectTimeout }}'
   YOUSIGN_READ_TIMEOUT: '{{ .Values.yousign.readTimeout }}'
   YOUSIGN_SIGN_SUCCESS_CALLBACK_URL: {{ .Values.yousign.signSuccessCallbackUrl }}
+  AUTH_ENABLED: '{{ .Values.auth.enabled }}'
   AUTH_GRAVITEE_AM_BASE_URL: '{{ .Values.auth.gravitee.amBaseUrl }}'
-  AUTH_GRAVITEE_AM_CONCAT_TIME: '{{ .Values.auth.gravitee.amConcatTime }}'
+  AUTH_GRAVITEE_AM_CONNECT_TIMEOUT: '{{ .Values.auth.gravitee.amConnectTimeout }}'
   AUTH_GRAVITEE_AM_READ_TIMEOUT: '{{ .Values.auth.gravitee.amReadTimeout }}'
   OAUTH2_OPAQUE_TOKEN_INTROSPECTION_URI: '{{ .Values.auth.oauth2.opaqueTokenIntrospectionUri }}'
   OAUTH2_OPAQUE_TOKEN_CLIENT_ID: '{{ .Values.auth.oauth2.opaqueTokenClientId }}'
