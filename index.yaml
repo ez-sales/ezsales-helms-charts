@@ -21,6 +21,25 @@ entries:
     version: 1.0.0
   ezsales-mkp-api:
   - apiVersion: v2
+    appVersion: 0.0.7
+    created: "2023-11-03T10:59:04.425486821Z"
+    description: Official EZ Sales Helm chart for EZ Sales Customer Portfolio Marketplace
+      API
+    digest: facecc391b1dc5c1813502aea1b9e15c7aa9904386d29fdeb70556e058245d15
+    home: https://www.ez-sales.eu
+    keywords:
+    - ez-sales.eu
+    - ezsales
+    - ezsales-mkp-api
+    kubeVersion: '>=1.14.0-0'
+    name: ezsales-mkp-api
+    sources:
+    - https://github.com/ez-sales
+    type: application
+    urls:
+    - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-api-0.0.7/ezsales-mkp-api-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
     appVersion: 0.0.6
     created: "2023-11-03T09:44:54.592362885Z"
     description: Official EZ Sales Helm chart for EZ Sales Customer Portfolio Marketplace
@@ -136,6 +155,24 @@ entries:
     version: 0.0.1
   ezsales-mkp-front:
   - apiVersion: v2
+    appVersion: 0.0.5
+    created: "2023-11-03T10:59:04.577007295Z"
+    description: Official EZ Sales Helm chart for EZ Sales MKP Front
+    digest: da6358df3bfd2bab5bd9d4df447cd713c1b85e9ee55e75d7ec5d2a6f637451e1
+    home: https://www.ez-sales.eu
+    keywords:
+    - ez-sales.eu
+    - ezsales
+    - ezsales-mkp-front
+    kubeVersion: '>=1.14.0-0'
+    name: ezsales-mkp-front
+    sources:
+    - https://github.com/ez-sales
+    type: application
+    urls:
+    - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-front-0.0.5/ezsales-mkp-front-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
     appVersion: 0.0.4
     created: "2023-08-18T16:05:41.400161886Z"
     description: Official EZ Sales Helm chart for EZ Sales MKP Front
@@ -189,4 +226,4 @@ entries:
     urls:
     - https://github.com/ez-sales/ezsales-helms-charts/releases/download/ezsales-mkp-front-0.0.2/ezsales-mkp-front-0.0.2.tgz
     version: 0.0.2
-generated: "2023-11-03T09:44:54.592397685Z"
+generated: "2023-11-03T10:59:04.577065398Z"
